@@ -1,0 +1,36 @@
+int ledpin = 4;
+int ledpin_2= 33;
+int pot = 36;
+int i =0;
+
+void setup() {
+ pinMode(ledpin,OUTPUT);
+ pinMode(ledpin_2,OUTPUT);
+ pinMode(pot,INPUT);
+ Serial.begin(115200);
+}
+
+void loop() {
+  int pot_value = analogRead(pot);
+  Serial.println(pot_value);
+  if (pot_value <=1023)
+  {
+    for (i=0;i<10;i++)
+    {
+      digitalWrite(ledpin,HIGH);
+      delay(100);
+      digitalWrite(ledpin,LOW);
+      delay(100);
+    }
+  }
+  else{
+    for (i=0;i<10;i++)
+    {
+      digitalWrite(ledpin_2,HIGH);
+      delay(100);
+      digitalWrite(ledpin_2,LOW);
+      delay(100);
+    }  
+  }
+  delay(2000);
+}
